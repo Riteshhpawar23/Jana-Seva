@@ -3,22 +3,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jan Seva - National Portal</title>
+  <title>Jan Seva - Smart City Civic Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- External CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="{% static 'Home/css/home.css' %}">
 </head>
+
 <body>
-  <!-- Top utility bar -->
+
+  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-left">
-      <span>Government Portal – Beta</span>
+      <span>Civic Issue Reporting Portal – Beta</span>
       <a href="#">Skip to main content</a>
     </div>
     <div class="top-bar-right">
@@ -34,262 +35,236 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="brand">
-      <div class="brand-logo" aria-hidden="true"></div>
+      <div class="brand-logo"></div>
       <div class="brand-text">
-        <div class="brand-title">National Portal</div>
-        <div class="brand-subtitle">Single-window access to Government information &amp; services</div>
+        <div class="brand-title">Jan Seva</div>
+        <div class="brand-subtitle">Unified Platform for Civic Issue Reporting & Local Services</div>
       </div>
     </div>
 
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <button class="nav-toggle">&#9776;</button>
 
     <nav>
       <ul class="nav-list">
-        <li><a class="nav-link" href="#">Citizen Services</a></li>
-        <li><a class="nav-link" href="#">Schemes</a></li>
-        <li><a class="nav-link" href="#">Documents</a></li>
-        <li><a class="nav-link" href="#">Know India</a></li>
-        <li><a class="nav-link" href="#">Directories</a></li>
-        <li><button class="nav-btn">Login</button></li>
+        <li><a class="nav-link auth-guard" href="#">Report Issue</a></li>
+        <li><a class="nav-link auth-guard" href="#">Issue Feed</a></li>
+        <li><a class="nav-link auth-guard" href="#">Events</a></li>
+
+        <li><a class="nav-link" href="#">Departments</a></li>
+        <li><a class="nav-link" href="#">About Us</a></li>
+
+        <li><button class="nav-btn" onclick="openAuthModal('login')">Login</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div>
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        <span>Access 5000+ services from one place</span>
+        <span>Report civic issues in seconds from one place</span>
       </div>
+
       <h1 class="hero-title">
         Your single window for all
-        <span class="hero-highlight">Government services, schemes &amp; information.</span>
+        <span class="hero-highlight">civic issue reporting & local services.</span>
       </h1>
+
       <p class="hero-subtitle">
-        Search across services, schemes, documents and websites from Union, State,
-        District and local bodies – all in one unified portal.
+        Capture problems with photos and GPS location, connect with municipal departments,
+        and track every complaint – all in one transparent, citizen-first portal.
       </p>
 
       <form class="search-box" action="#" method="get">
-        <input type="text" name="q" placeholder="Search for a service, scheme, document, or department" />
+        <input type="text" name="q" placeholder="Search by issue, area, ward, or department" />
         <button type="submit">Search</button>
       </form>
 
       <div class="hero-tags">
-        <button type="button" class="hero-tag">How do I get a passport?</button>
-        <button type="button" class="hero-tag">Apply for scholarship</button>
-        <button type="button" class="hero-tag">Pay property tax</button>
+        <button class="hero-tag">Report garbage spill near my house</button>
+        <button class="hero-tag">Streetlight not working</button>
+        <button class="hero-tag">Pothole on main road</button>
       </div>
 
       <div class="hero-meta">
-        Updated: 30 November 2025 · Data contributed by Central &amp; State Departments
+        Updated: 30 November 2025 · Data contributed by citizens & municipal departments
       </div>
     </div>
 
-    <aside class="hero-right-card" aria-label="Quick government services overview">
+    <aside class="hero-right-card">
       <div>
         <div class="hero-right-title">At a glance</div>
-        <div class="stat-row">
-          <span>Central &amp; State services</span>
-          <span class="stat-number">5,200+</span>
-        </div>
-        <div class="stat-row">
-          <span>Schemes &amp; benefits</span>
-          <span class="stat-number">1,300+</span>
-        </div>
-        <div class="stat-row">
-          <span>Government websites</span>
-          <span class="stat-number">6,700+</span>
-        </div>
+        <div class="stat-row"><span>Issues reported</span><span class="stat-number">12,500+</span></div>
+        <div class="stat-row"><span>Issues resolved</span><span class="stat-number">9,800+</span></div>
+        <div class="stat-row"><span>Wards & localities covered</span><span class="stat-number">320+</span></div>
       </div>
 
       <div>
         <div class="hero-right-title">Quick links</div>
         <div class="quick-links">
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">Apply for Services</span>
-            <span>Passports, licenses, certificates</span>
+          <button class="quick-link-card auth-guard">
+            <span class="quick-link-label">Report an Issue</span>
+            <span>Garbage, potholes, streetlights & more</span>
           </button>
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">Discover Schemes</span>
-            <span>Check your eligibility online</span>
+          <button class="quick-link-card auth-guard">
+            <span class="quick-link-label">Track Complaint Status</span>
+            <span>Real-time updates</span>
           </button>
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">Online Payments</span>
-            <span>Taxes, bills &amp; fees</span>
+          <button class="quick-link-card">
+            <span class="quick-link-label">Join Cleanup Drives</span>
+            <span>Local events & campaigns</span>
           </button>
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">RTI &amp; Grievances</span>
-            <span>Submit and track requests</span>
+          <button class="quick-link-card">
+            <span class="quick-link-label">Browse Issue Feed</span>
+            <span>Upvote & support issues</span>
           </button>
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">Data &amp; Reports</span>
-            <span>Open datasets &amp; analytics</span>
+          <button class="quick-link-card">
+            <span class="quick-link-label">Analytics & Reports</span>
+            <span>Trends & dashboards</span>
           </button>
-          <button type="button" class="quick-link-card">
-            <span class="quick-link-label">Directories</span>
-            <span>Contacts of offices &amp; officers</span>
+          <button class="quick-link-card">
+            <span class="quick-link-label">Department Directory</span>
+            <span>Municipal contacts</span>
           </button>
         </div>
       </div>
     </aside>
   </section>
 
-  <!-- Main content -->
+  <!-- MAIN CONTENT -->
   <main class="main">
-    <!-- Services / Schemes / Know India -->
+
+    <!-- CATEGORIES -->
     <section class="section">
       <div class="section-header">
         <div>
           <h2 class="section-title">Explore by category</h2>
-          <p class="section-subtitle">Browse citizen-centric services, welfare schemes and information about the country.</p>
+          <p class="section-subtitle">
+            Browse civic issues, community initiatives and city insights.
+          </p>
         </div>
       </div>
 
       <div class="cards-grid">
         <article class="card">
-          <span class="card-badge">Citizen Services</span>
-          <h3 class="card-title">Services for everyday life</h3>
-          <p class="card-text">
-            Find services related to identity, education, health, transport,
-            utilities, taxes and more from Central &amp; State Governments.
-          </p>
+          <span class="card-badge">Report</span>
+          <h3 class="card-title">Report civic issues</h3>
+          <p class="card-text">Log issues with photos & GPS.</p>
           <div class="card-links">
-            <a href="#" class="card-link">All services</a>
-            <a href="#" class="card-link">Top 20 services</a>
+            <a href="#" class="card-link auth-guard">Report a new issue</a>
+            <a href="#" class="card-link">View guide</a>
           </div>
         </article>
 
         <article class="card">
-          <span class="card-badge">Schemes</span>
-          <h3 class="card-title">Government schemes &amp; benefits</h3>
-          <p class="card-text">
-            Search schemes based on your profile – students, farmers, senior
-            citizens, entrepreneurs, differently-abled and more.
-          </p>
+          <span class="card-badge">Community</span>
+          <h3 class="card-title">Community & events</h3>
+          <p class="card-text">Discover cleanup drives & initiatives.</p>
           <div class="card-links">
-            <a href="#" class="card-link">Find schemes by eligibility</a>
-            <a href="#" class="card-link">Flagship schemes</a>
+            <a href="#" class="card-link auth-guard">Upcoming events</a>
+            <a href="#" class="card-link">Volunteer</a>
           </div>
         </article>
 
         <article class="card">
-          <span class="card-badge">Know India</span>
-          <h3 class="card-title">About India</h3>
-          <p class="card-text">
-            Learn about India's heritage, geography, culture, national symbols,
-            states &amp; union territories and key national events.
-          </p>
+          <span class="card-badge">Insights</span>
+          <h3 class="card-title">City insights & transparency</h3>
+          <p class="card-text">Explore hotspots & trends.</p>
           <div class="card-links">
-            <a href="#" class="card-link">Explore India</a>
-            <a href="#" class="card-link">For overseas visitors</a>
+            <a href="#" class="card-link">City dashboard</a>
+            <a href="#" class="card-link">Open data</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Popular services + What's new -->
+    <!-- TWO COLUMN SECTION -->
     <section class="section">
       <div class="two-column">
-        <!-- Popular services -->
+
         <div>
           <div class="section-header">
             <div>
-              <h2 class="section-title">Popular online services</h2>
-              <p class="section-subtitle">Frequently used services by citizens across the country.</p>
+              <h2 class="section-title">Popular citizen actions</h2>
+              <p class="section-subtitle">Frequently used actions.</p>
             </div>
-            <a href="#" class="section-link">View all services</a>
+            <a href="#" class="section-link">View all actions</a>
           </div>
 
           <div class="cards-grid">
             <article class="card">
-              <h3 class="card-title">Apply for Passport</h3>
-              <p class="card-text">
-                Online application, appointment booking and status tracking for
-                fresh and renewal passport services.
-              </p>
+              <h3 class="card-title">Lodge a new complaint</h3>
+              <p class="card-text">Submit issues with photos & GPS.</p>
               <div class="card-links">
-                <a href="#" class="card-link">Go to service</a>
+                <a href="#" class="card-link auth-guard">Go to form</a>
               </div>
             </article>
 
             <article class="card">
-              <h3 class="card-title">PAN &amp; Income Tax Services</h3>
-              <p class="card-text">
-                Apply for PAN, e-file returns, track refunds and access
-                important tax-related services.
-              </p>
+              <h3 class="card-title">Check complaint status</h3>
+              <p class="card-text">Track progress in real time.</p>
               <div class="card-links">
-                <a href="#" class="card-link">Go to service</a>
+                <a href="#" class="card-link auth-guard">Track my complaints</a>
               </div>
             </article>
 
             <article class="card">
-              <h3 class="card-title">Driving License &amp; Vehicle Registration</h3>
-              <p class="card-text">
-                Book test slots, renew license and access vehicle registration
-                services online.
-              </p>
+              <h3 class="card-title">View nearby issues</h3>
+              <p class="card-text">See issues reported around you.</p>
               <div class="card-links">
-                <a href="#" class="card-link">Go to service</a>
+                <a href="#" class="card-link auth-guard">Open map</a>
               </div>
             </article>
           </div>
         </div>
 
-        <!-- What's new -->
         <aside>
           <div class="section-header">
             <div>
               <h2 class="section-title">What's new</h2>
-              <p class="section-subtitle">Latest updates, announcements and featured information.</p>
+              <p class="section-subtitle">Latest platform updates.</p>
             </div>
           </div>
 
-          <div class="list" aria-label="Latest updates">
+          <div class="list">
             <div class="list-item">
-              <div class="list-item-title">
-                New online portal launched for unified scholarship applications
-              </div>
-              <div class="list-item-meta">Announcement · 28 November 2025</div>
+              <div class="list-item-title">New GPS photo upload</div>
+              <div class="list-item-meta">28 Nov 2025</div>
             </div>
+
             <div class="list-item">
-              <div class="list-item-title">
-                Updated guidelines for digital payments towards government services
-              </div>
-              <div class="list-item-meta">Circular · 24 November 2025</div>
+              <div class="list-item-title">Real-time tracking enabled</div>
+              <div class="list-item-meta">24 Nov 2025</div>
             </div>
+
             <div class="list-item">
-              <div class="list-item-title">
-                National data sets on health and education now available as open data
-              </div>
-              <div class="list-item-meta">Open Data · 20 November 2025</div>
+              <div class="list-item-title">Citywide heatmaps added</div>
+              <div class="list-item-meta">20 Nov 2025</div>
             </div>
+
             <div class="list-item">
-              <div class="list-item-title">
-                Scheduled maintenance of some online services on 01 December 2025
-              </div>
-              <div class="list-item-meta">Advisory · 18 November 2025</div>
+              <div class="list-item-title">Scheduled maintenance</div>
+              <div class="list-item-meta">18 Nov 2025</div>
             </div>
           </div>
         </aside>
+
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div>
         <div class="footer-title">About this portal</div>
         <div class="footer-links">
           <span>
-            This is a sample layout inspired by the National Portal style.
-            Replace this text with your official disclaimer and ownership details.
+            Jan Seva is a unified civic platform for reporting, tracking and resolving urban issues.
           </span>
         </div>
       </div>
@@ -297,7 +272,7 @@
       <div>
         <div class="footer-title">Useful links</div>
         <div class="footer-links">
-          <a href="#">Help &amp; Support</a>
+          <a href="#">Help & Support</a>
           <a href="#">Feedback</a>
           <a href="#">FAQs</a>
           <a href="#">Site Map</a>
@@ -309,8 +284,7 @@
         <div class="footer-links">
           <a href="#">Terms of Use</a>
           <a href="#">Privacy Policy</a>
-          <a href="#">Copyright Policy</a>
-          <a href="#">Accessibility Statement</a>
+          <a href="#">Copyright</a>
         </div>
       </div>
 
@@ -325,13 +299,16 @@
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-meta">
-        Designed for demonstration · Replace with your organisation details.
-      </div>
-      <div class="footer-meta">
-        Last updated: 30 November 2025 · Best viewed in modern browsers.
-      </div>
+      <div class="footer-meta">Demo · Replace with organisation details.</div>
+      <div class="footer-meta">Last updated: 30 November 2025</div>
     </div>
   </footer>
+
+  <!-- AUTH MODAL -->
+  {% include 'Home/auth_modal.html' %}
+
+  <!-- JS -->
+  <script src="{% static 'Home/js/auth.js' %}"></script>
+
 </body>
 </html>
